@@ -1,0 +1,5 @@
+Key,Value
+PROTOCOL,https
+HOSTNAME,http://internal-iwcare-admin-1426541263.us-east-1.elb.amazonaws.comm
+BASE_API_URL_MASTER,/api/v1/masterinfo
+BASE_API_URL_CLIENT,/api/v1/clientinfo
