@@ -13,3 +13,29 @@ SEDCMD-Anon = s/(\"Password\":)(\".*\")(,)/\1"#######"\3/g
         }
     }
 }
+
+
+_time,alert_name,alert_category,user,project,department
+3/31/2023 10:10,an PDM Alert,catergory_1,User1,SMMEM,CoreConsult
+3/31/2023 10:10,an encrypted alert,catergory_2,User2,SMMEM,CoreConsult
+3/31/2023 11:10,an PDM Alert,catergory_1,User2,SMMEM,CoreConsult
+3/31/2023 11:10,an PDM Alert,catergory_2,User1,SMMEM,CoreConsult
+3/31/2023 12:10,an PDM Alert,catergory_1,User3,SMMEM,CoreConsult
+3/31/2023 12:10,an PDM Alert,catergory_2,User4,SMMEM,CoreConsult
+3/31/2023 12:11,an encrypted alert,catergory_1,User4,SMMEM,CoreConsult
+3/31/2023 12:14,an encrypted alert,catergory_2,User4,SMMEM,CoreConsult
+3/31/2023 13:01,an encrypted alert,catergory_1,User1,SMMEM,CoreConsult
+3/31/2023  13:05:10 PM,an encrypted alert,catergory_1,User3,SMMEM,CoreConsult
+
+
+
+
+
+
+| eventstats latest_time(alert_name) as latestTime by alert_name, user 
+| eval latestTimePDM = if(alert_name LIKE "%PDM%",latestTime,null), latestTimeEncrypted = if(alert_name LIKE "%encrypted%",latestTime,null) 
+| eventstats max(latestTimeEncrypted) as latestTimeEncrypted max(latestTimePDM) as latestTimePDM by user 
+| eval diff = abs(latestTimeEncrypted-latestTimePDM) | search diff<7200
+
+
+
