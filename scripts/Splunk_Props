@@ -1,0 +1,15 @@
+
+[test_mask]
+SEDCMD-Anon = s/(\"Password\":)(\".*\")(,)/\1"#######"\3/g
+
+
+
+{
+    "properties": {
+        "requestBody": {
+            "UserName":"yourname",
+            "Password":"Some#%$@()",
+            "Gender":"someoption"
+        }
+    }
+}
