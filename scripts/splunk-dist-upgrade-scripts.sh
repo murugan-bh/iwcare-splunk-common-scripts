@@ -37,9 +37,10 @@ cd /opt/splunk/bin
 # Start the upgrade of Cluster Master
 sudo chown -R splunk:splunk /opt/splunk
 cd /home/splunk
-sudo -u splunk -H sh -c 'wget -O splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/8.2.5/linux/splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz''
-sudo -u splunk -H sh -c 'tar -xvf splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz -C /opt/'
+sudo -u splunk -H sh -c 'wget -O splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz"'
+sudo -u splunk -H sh -c 'tar -xvf splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz -C /opt/'
 sleep 15
+cd /opt/splunk/bin
 sudo -u splunk -H sh -c './splunk start --accept-license --answer-yes --no-prompt'
 sleep 15
 sudo chown -R splunk:splunk /opt/splunk
@@ -131,9 +132,10 @@ cd /opt/splunk/bin
 ./splunk stop
 sudo chown -R splunk:splunk /opt/splunk
 cd /home/splunk
-sudo -u splunk -H sh -c 'wget -O splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/8.2.5/linux/splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz''
-sudo -u splunk -H sh -c 'tar -xvf splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz -C /opt/'
+sudo -u splunk -H sh -c 'wget -O splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz"'
+sudo -u splunk -H sh -c 'tar -xvf splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz -C /opt/'
 sleep 15
+cd /opt/splunk/bin
 sudo -u splunk -H sh -c './splunk start --accept-license --answer-yes --no-prompt'
 sleep 15
 sudo chown -R splunk:splunk /opt/splunk
@@ -155,7 +157,7 @@ cd /opt/splunk/bin/
 
 # check if below parameters are correct --- conditon mentioned like --> <<<< this prop should be 0 >>>> 
 
-# -----> Note: Check if SH-2 has the new version (say 9.0.0) <--------
+# -----> Note: Check if SH-2 has the new version (say 9.0.4.1) <--------
 
 # Here is an example of the output from the command:
 
@@ -211,14 +213,15 @@ cd /opt/splunk/bin/
 
 # ============================================================================================================================
 
-# Step-11 - Start the Upgrade of Deployer:
+# Step-11 - Start the Upgrade of Deployer (MC):
 cd /opt/splunk/bin
 ./splunk stop
 sudo chown -R splunk:splunk /opt/splunk
 cd /home/splunk
-sudo -u splunk -H sh -c 'wget -O splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/8.2.5/linux/splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz''
-sudo -u splunk -H sh -c 'tar -xvf splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz -C /opt/'
+sudo -u splunk -H sh -c 'wget -O splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz"'
+sudo -u splunk -H sh -c 'tar -xvf splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz -C /opt/'
 sleep 15
+cd /opt/splunk/bin
 sudo -u splunk -H sh -c './splunk start --accept-license --answer-yes --no-prompt'
 sleep 15
 sudo chown -R splunk:splunk /opt/splunk
@@ -253,9 +256,10 @@ cd /opt/splunk/bin
 ./splunk stop
 sudo chown -R splunk:splunk /opt/splunk
 cd /home/splunk
-sudo -u splunk -H sh -c 'wget -O splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz 'https://download.splunk.com/products/splunk/releases/8.2.5/linux/splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz''
-sudo -u splunk -H sh -c 'tar -xvf splunk-8.2.5-77015bc7a462-Linux-x86_64.tgz -C /opt/'
+sudo -u splunk -H sh -c 'wget -O splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz"'
+sudo -u splunk -H sh -c 'tar -xvf splunk-9.0.4.1-419ad9369127-Linux-x86_64.tgz -C /opt/'
 sleep 15
+cd /opt/splunk/bin
 sudo -u splunk -H sh -c './splunk start --accept-license --answer-yes --no-prompt'
 sleep 15
 sudo chown -R splunk:splunk /opt/splunk
@@ -317,7 +321,7 @@ cd /opt/splunk/bin/
 
 # ============================================================================================================================
 
-## Step-17 - Finalize rolling upgrade
+## Step-17 - Upgrade the forwarders
 
 ## Note: To upgrade the Universal forwarder (Linux) use below Splunkbase App:
 # https://splunkbase.splunk.com/app/5200/
